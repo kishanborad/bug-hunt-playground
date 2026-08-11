@@ -14,6 +14,7 @@ export interface ManifestBug {
   title: string;
   description: string;
   remediation: string;
+  guideHint: string;
   expected?: string;
   targetSelector?: string;
   wcag?: string;
@@ -25,6 +26,7 @@ export interface Scenario {
   title: string;
   theme: string;
   difficulty: 'easy' | 'medium' | 'hard';
+  guideIntro: string;
   pages: ScenarioPage[];
   bugs: ManifestBug[];
 }
@@ -54,6 +56,5 @@ export interface BugMatch {
 
 export type AppView =
   | { kind: 'picker' }
-  | { kind: 'hunt'; scenarioId: string }
-  | { kind: 'probing'; scenarioId: string; pins: Pin[]; pinMatches: Map<string, string> }
+  | { kind: 'playground'; scenarioId: string }
   | { kind: 'report'; scenarioId: string; pins: Pin[]; pinMatches: Map<string, string>; probeResults: ProbeResult[] };

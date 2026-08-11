@@ -13,6 +13,7 @@ const fakeBugs: ManifestBug[] = [
     title: 'Broken image',
     description: 'desc',
     remediation: 'fix',
+    guideHint: 'Check images',
   },
   {
     id: 'bug-b',
@@ -24,6 +25,7 @@ const fakeBugs: ManifestBug[] = [
     title: 'Missing alt',
     description: 'desc',
     remediation: 'fix',
+    guideHint: 'Check images',
     wcag: '1.1.1',
     wcagUrl: 'https://example.com',
   },
@@ -94,6 +96,7 @@ describe('matchUserPins', () => {
         title: 'Broken image',
         description: 'desc',
         remediation: 'fix',
+        guideHint: 'Check images',
       },
     ];
 

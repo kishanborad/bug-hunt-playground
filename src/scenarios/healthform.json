@@ -3,6 +3,7 @@
   "title": "HealthForm",
   "theme": "Medical registration portal",
   "difficulty": "hard",
+  "guideIntro": "You're testing a medical registration portal. Fill out the registration, check the history form, and review the confirmation page.",
   "pages": [
     { "id": "register", "file": "register.html", "title": "Registration" },
     { "id": "history", "file": "history.html", "title": "Medical History" },
@@ -19,6 +20,7 @@
       "title": "Phone field missing label",
       "description": "The phone number input uses placeholder text as its only label. Screen readers cannot identify the field's purpose.",
       "remediation": "Add <label for=\"phone\">Phone number</label> before the input.",
+      "guideHint": "Tab through the form — does every field announce itself?",
       "wcag": "1.3.1",
       "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
     },
@@ -32,6 +34,7 @@
       "title": "Positive tabindex disrupts tab order",
       "description": "The phone field has tabindex=\"5\", which forces it to receive focus before other fields, breaking the expected top-to-bottom navigation.",
       "remediation": "Remove the tabindex attribute or set it to 0.",
+      "guideHint": "Press Tab repeatedly — does the focus order make sense?",
       "wcag": "2.4.3",
       "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/focus-order"
     },
@@ -44,7 +47,8 @@
       "check": "functional:missing-required",
       "title": "Required field has no indicator",
       "description": "The allergies field is clinically required but has no asterisk, no aria-required, and no visual distinction from optional fields.",
-      "remediation": "Add aria-required=\"true\" and a visual asterisk (*)."
+      "remediation": "Add aria-required=\"true\" and a visual asterisk (*).",
+      "guideHint": "Look for form fields that should be required but aren't"
     },
     {
       "id": "hf-error-role",
@@ -56,6 +60,7 @@
       "title": "Error message has insufficient contrast",
       "description": "The error message text (#f87171) on the light gray background (#f3f4f6) has a contrast ratio of 3.1:1, below the 4.5:1 WCAG AA minimum.",
       "remediation": "Use a darker red like #dc2626 for the error text.",
+      "guideHint": "Squint at the text colors — can you read everything easily?",
       "wcag": "1.4.3",
       "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum"
     },
@@ -69,6 +74,7 @@
       "title": "Blood type radio buttons overlap",
       "description": "The radio button group uses absolute positioning that causes the O+ and O- labels to overlap each other.",
       "remediation": "Use flexbox or grid layout instead of absolute positioning.",
+      "guideHint": "Watch for elements sitting on top of each other",
       "targetSelector": ".radio-o-neg"
     },
     {
@@ -80,7 +86,8 @@
       "check": "functional:dead-link",
       "title": "Edit link goes nowhere",
       "description": "The 'Edit your information' link has href=\"#\" and does not navigate back to the registration form.",
-      "remediation": "Set href to \"register.html\" to link back to the form."
+      "remediation": "Set href to \"register.html\" to link back to the form.",
+      "guideHint": "Click every link — do they all go somewhere?"
     },
     {
       "id": "hf-heading-skip",
@@ -92,6 +99,7 @@
       "title": "Heading level skips from h1 to h4",
       "description": "The page jumps from <h1> to <h4>, skipping h2 and h3. This confuses screen reader users who navigate by heading level.",
       "remediation": "Use <h2> for section headings under the page title.",
+      "guideHint": "Check the heading structure — does it flow logically?",
       "wcag": "1.3.1",
       "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
     }
