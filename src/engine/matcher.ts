@@ -25,7 +25,7 @@ export function matchUserPins(
       }
     }
 
-    if (closestBugId && !matches.has(closestBugId)) {
+    if (closestBugId && ![...matches.values()].includes(closestBugId)) {
       matches.set(pin.id, closestBugId);
     }
   }

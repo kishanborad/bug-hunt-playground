@@ -10,7 +10,7 @@ export async function runAccessibilityProbe(
   if (a11yBugs.length === 0) return results;
 
   const axeResults = await axe.run(doc.documentElement, {
-    runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa'] },
+    runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'best-practice'] },
   });
 
   for (const bug of a11yBugs) {
