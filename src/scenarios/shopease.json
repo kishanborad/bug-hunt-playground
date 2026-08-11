@@ -3,6 +3,7 @@
   "title": "ShopEase",
   "theme": "E-commerce store",
   "difficulty": "medium",
+  "guideIntro": "You're testing an e-commerce site. Browse the product listing, check the detail page, and try the checkout flow.",
   "pages": [
     { "id": "listing", "file": "listing.html", "title": "Product Listing" },
     { "id": "detail", "file": "detail.html", "title": "Product Detail" },
@@ -19,6 +20,7 @@
       "title": "Missing alt on hero banner",
       "description": "The main banner image has no alt attribute. Screen readers cannot convey what it shows.",
       "remediation": "Add a descriptive alt attribute: alt=\"Summer sale — 30% off all electronics\".",
+      "guideHint": "Look for images that a screen reader can't describe",
       "wcag": "1.1.1",
       "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/non-text-content"
     },
@@ -31,7 +33,8 @@
       "check": "visual:broken-image",
       "title": "Broken product thumbnail",
       "description": "The second product card shows a broken image icon because the src points to a nonexistent file.",
-      "remediation": "Fix the src to point to a valid image or use a placeholder."
+      "remediation": "Fix the src to point to a valid image or use a placeholder.",
+      "guideHint": "Check whether all product images load correctly"
     },
     {
       "id": "se-price-contrast",
@@ -43,6 +46,7 @@
       "title": "Low contrast on price text",
       "description": "Price labels use #94a3b8 on a #ffffff background — a contrast ratio of 3.4:1, below the 4.5:1 WCAG AA minimum for normal text.",
       "remediation": "Darken the price color to at least #64748b (contrast 5.6:1).",
+      "guideHint": "Squint at the text colors — can you read everything easily?",
       "wcag": "1.4.3",
       "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum"
     },
@@ -56,6 +60,7 @@
       "title": "Incorrect price total",
       "description": "The detail page shows a total of $149.97 for 3 items at $59.99, but 3 × $59.99 = $179.97.",
       "remediation": "Fix the calculation logic to multiply unit price by quantity correctly.",
+      "guideHint": "Verify the cart math adds up",
       "expected": "$179.97"
     },
     {
@@ -68,6 +73,7 @@
       "title": "Add-to-cart button overlaps price",
       "description": "The 'Add to Cart' button has a negative margin that causes it to overlap the price tag, making both hard to read.",
       "remediation": "Remove the negative margin or adjust the layout spacing.",
+      "guideHint": "Watch for elements sitting on top of each other",
       "targetSelector": ".price-tag"
     },
     {
@@ -80,6 +86,7 @@
       "title": "Email field missing label",
       "description": "The email input has placeholder text but no associated <label> element. Screen readers announce it as an unlabeled text field.",
       "remediation": "Add <label for=\"email\">Email address</label> before the input.",
+      "guideHint": "Tab through the form — does every field announce itself?",
       "wcag": "1.3.1",
       "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
     },
@@ -92,7 +99,8 @@
       "check": "functional:dead-button",
       "title": "Place Order button is disabled",
       "description": "The submit button has a disabled attribute with no visible explanation, leaving users unable to complete their purchase.",
-      "remediation": "Remove the disabled attribute or add a visible message explaining what's needed."
+      "remediation": "Remove the disabled attribute or add a visible message explaining what's needed.",
+      "guideHint": "Try clicking every button — do they all work?"
     }
   ]
 }

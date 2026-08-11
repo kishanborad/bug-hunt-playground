@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import type { AppView, Pin, ProbeResult } from './types';
+import type { AppView, Pin } from './types';
 import ScenarioPicker from './components/ScenarioPicker';
 import HuntView from './components/HuntView';
-import ProbeView from './components/ProbeView';
 import ReportCard from './components/ReportCard';
 
 export default function App() {
@@ -12,33 +11,21 @@ export default function App() {
     case 'picker':
       return (
         <ScenarioPicker
-          onSelect={(scenarioId: string) => setView({ kind: 'hunt', scenarioId })}
+          onSelect={(scenarioId: string) => setView({ kind: 'playground', scenarioId })}
         />
       );
 
-    case 'hunt':
+    case 'playground':
       return (
         <HuntView
           scenarioId={view.scenarioId}
           onSubmit={(pins: Pin[], pinMatches: Map<string, string>) =>
-            setView({ kind: 'probing', scenarioId: view.scenarioId, pins, pinMatches })
-          }
-          onBack={() => setView({ kind: 'picker' })}
-        />
-      );
-
-    case 'probing':
-      return (
-        <ProbeView
-          scenarioId={view.scenarioId}
-          pins={view.pins}
-          onComplete={(probeResults: ProbeResult[]) =>
             setView({
               kind: 'report',
               scenarioId: view.scenarioId,
-              pins: view.pins,
-              pinMatches: view.pinMatches,
-              probeResults,
+              pins,
+              pinMatches,
+              probeResults: [],
             })
           }
           onBack={() => setView({ kind: 'picker' })}
@@ -53,7 +40,7 @@ export default function App() {
           pinMatches={view.pinMatches}
           probeResults={view.probeResults}
           onTryAnother={() => setView({ kind: 'picker' })}
-          onReplay={() => setView({ kind: 'hunt', scenarioId: view.scenarioId })}
+          onReplay={() => setView({ kind: 'playground', scenarioId: view.scenarioId })}
         />
       );
   }

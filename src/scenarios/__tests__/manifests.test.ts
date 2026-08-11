@@ -49,4 +49,20 @@ describe('scenario manifests', () => {
       }
     }
   });
+
+  it('every bug has a non-empty guideHint', () => {
+    for (const s of allScenarios) {
+      for (const bug of s.bugs) {
+        expect(bug.guideHint).toBeDefined();
+        expect(bug.guideHint.length).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it('every scenario has a non-empty guideIntro', () => {
+    for (const s of allScenarios) {
+      expect(s.guideIntro).toBeDefined();
+      expect(s.guideIntro.length).toBeGreaterThan(0);
+    }
+  });
 });
