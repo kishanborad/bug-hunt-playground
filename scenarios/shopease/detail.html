@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopEase — Bluetooth Speaker</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f8fafc; color: #1e293b; }
+    nav { background: #1e293b; padding: 1rem 2rem; display: flex; gap: 2rem; align-items: center; }
+    nav .brand { color: #60a5fa; font-weight: 700; font-size: 1.2rem; }
+    nav a { color: #cbd5e1; text-decoration: none; font-size: 0.9rem; }
+    .product { max-width: 720px; margin: 2rem auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 0 2rem; }
+    .product img { width: 100%; border-radius: 8px; background: #fce7f3; }
+    .product-info h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .product-info p { color: #475569; margin-bottom: 1rem; line-height: 1.6; }
+    .price-tag { font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 0.5rem; }
+    .quantity { margin-bottom: 1rem; }
+    .quantity label { font-size: 0.9rem; color: #475569; }
+    .quantity select { padding: 0.3rem 0.5rem; border: 1px solid #cbd5e1; border-radius: 4px; margin-left: 0.5rem; }
+    .total-price { font-size: 1.1rem; color: #475569; margin-bottom: 1rem; }
+    .add-to-cart { background: #3b82f6; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-size: 1rem; cursor: pointer; margin-top: -30px; position: relative; }
+    .add-to-cart:hover { background: #2563eb; }
+    footer { background: #f1f5f9; padding: 1.5rem; text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <span class="brand">ShopEase</span>
+    <a href="listing.html">Products</a>
+    <a href="detail.html">Featured</a>
+    <a href="checkout.html">Cart (2)</a>
+  </nav>
+  <section class="product">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='350'%3E%3Crect fill='%23fce7f3' width='350' height='350'/%3E%3Ctext x='175' y='180' text-anchor='middle' font-family='system-ui' font-size='18' fill='%23ec4899'%3EBluetooth Speaker%3C/text%3E%3C/svg%3E" alt="Bluetooth Speaker product photo">
+    <div class="product-info">
+      <h1>Bluetooth Speaker</h1>
+      <p>Premium portable speaker with 360-degree sound, 20-hour battery life, and IPX7 waterproofing. Perfect for outdoor adventures.</p>
+      <div class="price-tag">$59.99 each</div>
+      <div class="quantity">
+        <label for="qty">Quantity:</label>
+        <select id="qty"><option>1</option><option selected>3</option><option>5</option></select>
+      </div>
+      <div class="total-price">Total: $149.97</div>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </section>
+  <footer>&copy; 2025 ShopEase Inc. All rights reserved.</footer>
+</body>
+</html>

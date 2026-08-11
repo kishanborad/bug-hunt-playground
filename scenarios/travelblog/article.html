@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelBlog — Dolomites</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, serif; background: #ffffff; color: #1e293b; }
+    nav { padding: 1.5rem 2rem; display: flex; gap: 2rem; align-items: center; border-bottom: 1px solid #f1f5f9; }
+    nav .brand { font-size: 1.3rem; font-weight: 700; color: #1e293b; font-family: system-ui; }
+    nav a { color: #64748b; text-decoration: none; font-size: 0.9rem; font-family: system-ui; }
+    .article-layout { max-width: 960px; margin: 2rem auto; padding: 0 2rem; position: relative; }
+    .article-hero { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; display: block; margin-bottom: 1.5rem; background: #dbeafe; }
+    .article-content { max-width: 640px; }
+    .article-content h1 { font-size: 2rem; margin-bottom: 1rem; }
+    .article-content .meta { color: #94a3b8; font-size: 0.85rem; font-family: system-ui; margin-bottom: 1.5rem; }
+    .article-content p { line-height: 1.8; margin-bottom: 1.25rem; color: #334155; }
+    .sidebar { position: absolute; right: 2rem; top: 340px; width: 280px; left: 400px; background: #f8fafc; border-radius: 8px; padding: 1.25rem; }
+    .sidebar h3 { font-size: 1rem; margin-bottom: 0.75rem; font-family: system-ui; }
+    .sidebar ul { list-style: none; }
+    .sidebar ul li { padding: 0.4rem 0; border-bottom: 1px solid #e2e8f0; }
+    .sidebar ul li a { color: #6366f1; text-decoration: none; font-family: system-ui; font-size: 0.85rem; }
+    footer { text-align: center; padding: 2rem; color: #94a3b8; font-size: 0.8rem; font-family: system-ui; border-top: 1px solid #f1f5f9; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <span class="brand">TravelBlog</span>
+    <a href="home.html">Home</a>
+    <a href="article.html">Articles</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <article class="article-layout">
+    <img class="article-hero" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='300'%3E%3Crect fill='%23dbeafe' width='900' height='300'/%3E%3Ctext x='450' y='155' text-anchor='middle' font-family='Georgia' font-size='20' fill='%233b82f6'%3EDolomites at Sunrise%3C/text%3E%3C/svg%3E">
+    <div class="article-content">
+      <h1>Two Weeks in the Dolomites</h1>
+      <div class="meta">Published June 12, 2025 &middot; 8 min read</div>
+      <p>The Dolomites are not the Alps you see on chocolate bar wrappers. These are jagged, vertical, almost alien towers of pale limestone that glow pink at sunset. The Italians call it enrosadira — the turning pink — and once you have seen it from a rifugio terrace with a glass of local wine, you understand why people come back year after year.</p>
+      <p>We hiked Alta Via 1, the classic high route that crosses the range from Lago di Braies in the north to Belluno in the south. Fourteen days, ten rifugi, and one thunderstorm that hit at 2,800 meters with nowhere to hide except under a tarp rigged between two boulders.</p>
+      <p>The food in the rifugi is better than it has any right to be. Homemade pasta, wild mushroom risotto, apple strudel with cream, all served at 2,500 meters by people who haul supplies up on their backs or by cable when the weather cooperates.</p>
+    </div>
+    <aside class="sidebar">
+      <h3>More Articles</h3>
+      <ul>
+        <li><a href="article.html">Greek Cyclades</a></li>
+        <li><a href="article.html">Balkan Night Train</a></li>
+        <li><a href="article.html">Patagonia Dispatch</a></li>
+      </ul>
+    </aside>
+  </article>
+  <footer>&copy; 2025 TravelBlog. All journeys begin with a single step.</footer>
+</body>
+</html>

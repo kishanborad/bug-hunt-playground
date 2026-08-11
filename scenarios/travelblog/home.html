@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelBlog — Home</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, serif; background: #ffffff; color: #1e293b; }
+    nav { padding: 1.5rem 2rem; display: flex; gap: 2rem; align-items: center; border-bottom: 1px solid #f1f5f9; }
+    nav .brand { font-size: 1.3rem; font-weight: 700; color: #1e293b; font-family: system-ui; }
+    nav a { color: #b0b0b0; text-decoration: none; font-size: 0.9rem; font-family: system-ui; }
+    .hero { background: linear-gradient(135deg, #dbeafe, #ede9fe); padding: 4rem 2rem; text-align: center; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .hero p { color: #475569; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+    .articles { max-width: 720px; margin: 2rem auto; padding: 0 2rem; }
+    .articles h3.section-title { font-size: 1.25rem; margin-bottom: 1.5rem; font-family: system-ui; }
+    .article-card { border-bottom: 1px solid #f1f5f9; padding: 1.5rem 0; }
+    .article-card h2 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .article-card p { color: #64748b; line-height: 1.6; margin-bottom: 0.75rem; }
+    .article-card a { color: #6366f1; text-decoration: none; font-family: system-ui; font-size: 0.9rem; }
+    footer { text-align: center; padding: 2rem; color: #94a3b8; font-size: 0.8rem; font-family: system-ui; border-top: 1px solid #f1f5f9; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <span class="brand">TravelBlog</span>
+    <a href="home.html">Home</a>
+    <a href="article.html">Articles</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <section class="hero">
+    <h1>Stories From the Road</h1>
+    <p>Dispatches from backroads, coastlines, and quiet corners of the world you might have missed.</p>
+  </section>
+  <section class="articles">
+    <h3 class="section-title">Latest Posts</h3>
+    <div class="article-card">
+      <h2>Two Weeks in the Dolomites</h2>
+      <p>Jagged limestone towers, emerald valleys, and mountain refuges that serve the best apple strudel you have ever tasted. A trail-by-trail guide to Alta Via 1.</p>
+      <a class="read-more-1" href="article.html">Read more &rarr;</a>
+    </div>
+    <div class="article-card">
+      <h2>Island-Hopping the Greek Cyclades</h2>
+      <p>White sugar-cube villages, sunset caldera views, and ferry schedules that teach you the meaning of patience. Our picks for the quieter islands.</p>
+      <a class="read-more-2" href="#broken">Read more &rarr;</a>
+    </div>
+    <div class="article-card">
+      <h2>Night Train Through the Balkans</h2>
+      <p>Belgrade to Thessaloniki on a sleeper car with no Wi-Fi and a dining car that closes at 8pm. Sometimes the journey really is the destination.</p>
+      <a class="read-more-3" href="article.html">Read more &rarr;</a>
+    </div>
+  </section>
+  <footer>&copy; 2025 TravelBlog. All journeys begin with a single step.</footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthForm — Confirmation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f0fdf4; color: #1e293b; }
+    header { background: #166534; padding: 1rem 2rem; display: flex; gap: 2rem; align-items: center; }
+    header .brand { color: white; font-weight: 700; font-size: 1.2rem; }
+    header a { color: #bbf7d0; text-decoration: none; font-size: 0.9rem; }
+    .confirm-container { max-width: 520px; margin: 2rem auto; padding: 0 2rem; }
+    .confirm-container h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .confirm-container .subtitle { color: #475569; margin-bottom: 1.5rem; }
+    .review-card { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; }
+    .review-card h4.section-heading { font-size: 1rem; margin-bottom: 0.75rem; color: #166534; }
+    .review-row { display: flex; justify-content: space-between; font-size: 0.9rem; padding: 0.4rem 0; border-bottom: 1px solid #f1f5f9; }
+    .review-row:last-child { border-bottom: none; }
+    .review-row .label { color: #64748b; }
+    .edit-link { color: #3b82f6; font-size: 0.85rem; text-decoration: none; }
+    .edit-link:hover { text-decoration: underline; }
+    .btn-submit { background: #166534; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-size: 1rem; cursor: pointer; width: 100%; margin-top: 1rem; }
+    .step-indicator { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .step { width: 2rem; height: 4px; border-radius: 2px; background: #166534; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">HealthForm</span>
+    <a href="register.html">Register</a>
+    <a href="history.html">History</a>
+    <a href="confirm.html">Confirm</a>
+  </header>
+  <section class="confirm-container">
+    <h1>Review Your Information</h1>
+    <p class="subtitle">Step 3 of 3 — Please verify before submitting</p>
+    <div class="step-indicator">
+      <div class="step"></div><div class="step"></div><div class="step"></div>
+    </div>
+    <div class="review-card">
+      <h4 class="section-heading">Personal Information</h4>
+      <div class="review-row"><span class="label">Name</span><span>Jane Doe</span></div>
+      <div class="review-row"><span class="label">Date of birth</span><span>1990-03-15</span></div>
+      <div class="review-row"><span class="label">Email</span><span>jane@example.com</span></div>
+      <div class="review-row"><span class="label">Phone</span><span>(555) 123-4567</span></div>
+      <a class="edit-link" href="#">Edit your information</a>
+    </div>
+    <div class="review-card">
+      <h4 class="section-heading">Medical History</h4>
+      <div class="review-row"><span class="label">Conditions</span><span>None reported</span></div>
+      <div class="review-row"><span class="label">Allergies</span><span>Penicillin</span></div>
+      <div class="review-row"><span class="label">Blood type</span><span>O+</span></div>
+      <div class="review-row"><span class="label">Medications</span><span>None</span></div>
+    </div>
+    <button class="btn-submit">Submit Registration</button>
+  </section>
+</body>
+</html>
