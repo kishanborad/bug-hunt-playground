@@ -130,30 +130,34 @@ export default function PlaygroundView({ scenarioId, onFinish, onBack }: Props) 
     if (!iframe?.contentDocument || mode !== 'probe') return;
 
     const pageBugs = scenario.bugs.filter((b) => b.page === currentPage.id);
-    const pageResults = await runAllProbes(iframe.contentDocument, pageBugs, (progress) => {
-      setProbePhase(progress.phase);
-      // Highlight each new result as it arrives
-      for (const r of progress.results) {
-        highlightBug(iframe.contentDocument!, r.selector);
-      }
-    });
-
-    setProbeResults((prev) => {
-      const updated = [...prev, ...pageResults];
-      const nextIndex = probePageIndex + 1;
-      if (nextIndex < scenario.pages.length) {
-        setProbePageIndex(nextIndex);
-        const nextPage = scenario.pages[nextIndex];
-        setCurrentPage(nextPage);
-        if (iframeRef.current) {
-          iframeRef.current.src = `${base}scenarios/${scenario.id}/${nextPage.file}`;
+    let pageResults: ProbeResult[];
+    try {
+      pageResults = await runAllProbes(iframe.contentDocument, pageBugs, (progress) => {
+        setProbePhase(progress.phase);
+        for (const r of progress.results) {
+          highlightBug(iframe.contentDocument!, r.selector);
         }
-      } else {
-        setScanComplete(true);
-        setProbePhase('done');
+      });
+    } catch {
+      setScanComplete(true);
+      setProbePhase('done');
+      return;
+    }
+
+    setProbeResults((prev) => [...prev, ...pageResults]);
+
+    const nextIndex = probePageIndex + 1;
+    if (nextIndex < scenario.pages.length) {
+      setProbePageIndex(nextIndex);
+      const nextPage = scenario.pages[nextIndex];
+      setCurrentPage(nextPage);
+      if (iframeRef.current) {
+        iframeRef.current.src = `${base}scenarios/${scenario.id}/${nextPage.file}`;
       }
-      return updated;
-    });
+    } else {
+      setScanComplete(true);
+      setProbePhase('done');
+    }
   }, [mode, scenario, currentPage.id, probePageIndex, base]);
 
   // Trigger probes on iframe load during probe mode
