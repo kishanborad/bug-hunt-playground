@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelBlog — Contact</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, serif; background: #ffffff; color: #1e293b; }
+    nav { padding: 1.5rem 2rem; display: flex; gap: 2rem; align-items: center; border-bottom: 1px solid #f1f5f9; }
+    nav .brand { font-size: 1.3rem; font-weight: 700; color: #1e293b; font-family: system-ui; }
+    nav a { color: #64748b; text-decoration: none; font-size: 0.9rem; font-family: system-ui; }
+    .contact { max-width: 520px; margin: 2rem auto; padding: 0 2rem; }
+    .contact h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .contact .subtitle { color: #64748b; margin-bottom: 2rem; line-height: 1.6; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.85rem; color: #475569; margin-bottom: 0.3rem; font-family: system-ui; }
+    .form-group input, .form-group textarea { width: 100%; padding: 0.6rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem; font-family: system-ui; }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.15); }
+    .btn-send { background: #6366f1; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-size: 1rem; cursor: pointer; font-family: system-ui; }
+    .btn-send:hover { background: #4f46e5; }
+    .back-link-row { margin-top: 2rem; text-align: center; }
+    .back-home { color: #6366f1; text-decoration: none; font-family: system-ui; font-size: 0.9rem; }
+    footer { text-align: center; padding: 2rem; color: #94a3b8; font-size: 0.8rem; font-family: system-ui; border-top: 1px solid #f1f5f9; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <span class="brand">TravelBlog</span>
+    <a href="home.html">Home</a>
+    <a href="article.html">Articles</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <section class="contact">
+    <h1>Get in Touch</h1>
+    <p class="subtitle">Have a travel tip, a story correction, or just want to say hello? Drop us a line and we will get back to you.</p>
+    <form>
+      <div class="form-group">
+        <label for="name">Your name</label>
+        <input type="text" id="name" placeholder="Jane Traveler">
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="jane@example.com">
+      </div>
+      <div class="form-group">
+        <textarea id="message" placeholder="Write your message here..."></textarea>
+      </div>
+      <button type="submit" class="btn-send">Send Message</button>
+    </form>
+    <div class="back-link-row">
+      <a class="back-home" href="#">&larr; Back to homepage</a>
+    </div>
+  </section>
+  <footer>&copy; 2025 TravelBlog. All journeys begin with a single step.</footer>
+</body>
+</html>
