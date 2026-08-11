@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthForm — Registration</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f0fdf4; color: #1e293b; }
+    header { background: #166534; padding: 1rem 2rem; display: flex; gap: 2rem; align-items: center; }
+    header .brand { color: white; font-weight: 700; font-size: 1.2rem; }
+    header a { color: #bbf7d0; text-decoration: none; font-size: 0.9rem; }
+    .form-container { max-width: 520px; margin: 2rem auto; padding: 0 2rem; }
+    .form-container h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .form-container .subtitle { color: #475569; margin-bottom: 1.5rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.85rem; color: #475569; margin-bottom: 0.3rem; }
+    .form-group input { width: 100%; padding: 0.6rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem; }
+    .form-group input:focus { outline: none; border-color: #166534; box-shadow: 0 0 0 3px rgba(22,101,52,0.15); }
+    .btn-next { background: #166534; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-size: 1rem; cursor: pointer; }
+    .btn-next:hover { background: #15803d; }
+    .step-indicator { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .step { width: 2rem; height: 4px; border-radius: 2px; background: #d1d5db; }
+    .step.active { background: #166534; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">HealthForm</span>
+    <a href="register.html">Register</a>
+    <a href="history.html">History</a>
+    <a href="confirm.html">Confirm</a>
+  </header>
+  <section class="form-container">
+    <h1>Patient Registration</h1>
+    <p class="subtitle">Step 1 of 3 — Personal information</p>
+    <div class="step-indicator">
+      <div class="step active"></div><div class="step"></div><div class="step"></div>
+    </div>
+    <div class="form-group">
+      <label for="fullname">Full name</label>
+      <input type="text" id="fullname" placeholder="Jane Doe">
+    </div>
+    <div class="form-group">
+      <label for="dob">Date of birth</label>
+      <input type="date" id="dob">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="jane@example.com">
+    </div>
+    <div class="form-group">
+      <input type="tel" id="phone" tabindex="5" placeholder="(555) 123-4567">
+    </div>
+    <a href="history.html"><button class="btn-next">Next: Medical History</button></a>
+  </section>
+</body>
+</html>

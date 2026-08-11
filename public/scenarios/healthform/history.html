@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthForm — Medical History</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f0fdf4; color: #1e293b; }
+    header { background: #166534; padding: 1rem 2rem; display: flex; gap: 2rem; align-items: center; }
+    header .brand { color: white; font-weight: 700; font-size: 1.2rem; }
+    header a { color: #bbf7d0; text-decoration: none; font-size: 0.9rem; }
+    .form-container { max-width: 520px; margin: 2rem auto; padding: 0 2rem; }
+    .form-container h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .form-container .subtitle { color: #475569; margin-bottom: 1.5rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.85rem; color: #475569; margin-bottom: 0.3rem; }
+    .form-group input, .form-group textarea { width: 100%; padding: 0.6rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem; }
+    .form-group textarea { height: 80px; resize: vertical; }
+    .error-msg { color: #f87171; font-size: 0.8rem; margin-top: 0.25rem; background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 4px; }
+    .blood-type-group { position: relative; margin-bottom: 1.5rem; }
+    .blood-type-group span { font-size: 0.85rem; color: #475569; display: block; margin-bottom: 0.5rem; }
+    .radio-row { display: flex; flex-wrap: wrap; gap: 0.75rem; position: relative; }
+    .radio-item { display: flex; align-items: center; gap: 0.3rem; }
+    .radio-o-neg { position: absolute; left: 135px; }
+    .btn-next { background: #166534; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-size: 1rem; cursor: pointer; }
+    .step-indicator { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .step { width: 2rem; height: 4px; border-radius: 2px; background: #d1d5db; }
+    .step.active { background: #166534; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">HealthForm</span>
+    <a href="register.html">Register</a>
+    <a href="history.html">History</a>
+    <a href="confirm.html">Confirm</a>
+  </header>
+  <section class="form-container">
+    <h1>Medical History</h1>
+    <p class="subtitle">Step 2 of 3 — Health information</p>
+    <div class="step-indicator">
+      <div class="step active"></div><div class="step active"></div><div class="step"></div>
+    </div>
+    <div class="form-group">
+      <label for="conditions">Current conditions</label>
+      <textarea id="conditions" placeholder="List any ongoing conditions..."></textarea>
+    </div>
+    <div class="form-group">
+      <label for="allergies">Known allergies</label>
+      <input type="text" id="allergies" placeholder="e.g., Penicillin, Peanuts">
+      <div class="error-msg">This field is required for safety</div>
+    </div>
+    <div class="blood-type-group">
+      <span>Blood type</span>
+      <div class="radio-row">
+        <label class="radio-item"><input type="radio" name="blood" value="A+"> A+</label>
+        <label class="radio-item"><input type="radio" name="blood" value="A-"> A-</label>
+        <label class="radio-item"><input type="radio" name="blood" value="B+"> B+</label>
+        <label class="radio-item"><input type="radio" name="blood" value="B-"> B-</label>
+        <label class="radio-item"><input type="radio" name="blood" value="O+"> O+</label>
+        <label class="radio-item radio-o-neg"><input type="radio" name="blood" value="O-"> O-</label>
+        <label class="radio-item"><input type="radio" name="blood" value="AB+"> AB+</label>
+        <label class="radio-item"><input type="radio" name="blood" value="AB-"> AB-</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="meds">Current medications</label>
+      <input type="text" id="meds" placeholder="e.g., Metformin 500mg">
+    </div>
+    <a href="confirm.html"><button class="btn-next">Next: Review &amp; Confirm</button></a>
+  </section>
+</body>
+</html>
