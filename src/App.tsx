@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import type { AppView, Pin } from './types';
+import type { AppView, Pin, ProbeResult } from './types';
 import ScenarioPicker from './components/ScenarioPicker';
-import HuntView from './components/HuntView';
+import PlaygroundView from './components/PlaygroundView';
 import ReportCard from './components/ReportCard';
 
 export default function App() {
@@ -17,15 +17,15 @@ export default function App() {
 
     case 'playground':
       return (
-        <HuntView
+        <PlaygroundView
           scenarioId={view.scenarioId}
-          onSubmit={(pins: Pin[], pinMatches: Map<string, string>) =>
+          onFinish={(pins: Pin[], pinMatches: Map<string, string>, probeResults: ProbeResult[]) =>
             setView({
               kind: 'report',
               scenarioId: view.scenarioId,
               pins,
               pinMatches,
-              probeResults: [],
+              probeResults,
             })
           }
           onBack={() => setView({ kind: 'picker' })}
