@@ -12,7 +12,7 @@ export default function App() {
     case 'picker':
       return (
         <ScenarioPicker
-          onSelect={(scenarioId) => setView({ kind: 'hunt', scenarioId })}
+          onSelect={(scenarioId: string) => setView({ kind: 'hunt', scenarioId })}
         />
       );
 

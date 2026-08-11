@@ -1,17 +1,12 @@
 import { allScenarios } from '../scenarios';
-import type { Scenario } from '../types';
 
-interface Props {
-  onSelect: (scenarioId: string) => void;
-}
-
-const difficultyColor: Record<string, string> = {
+const difficultyColor = {
   easy: 'text-bh-found',
   medium: 'text-bh-major',
   hard: 'text-bh-critical',
 };
 
-export default function ScenarioPicker({ onSelect }: Props) {
+export default function ScenarioPicker({ onSelect }) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4">
       <h1 className="text-3xl font-bold mb-2">Bug Hunt</h1>
@@ -28,13 +23,7 @@ export default function ScenarioPicker({ onSelect }: Props) {
   );
 }
 
-function ScenarioCard({
-  scenario,
-  onSelect,
-}: {
-  scenario: Scenario;
-  onSelect: (id: string) => void;
-}) {
+function ScenarioCard({ scenario, onSelect }) {
   return (
     <button
       type="button"
