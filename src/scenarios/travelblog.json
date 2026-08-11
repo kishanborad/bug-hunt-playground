@@ -1,0 +1,99 @@
+{
+  "id": "travelblog",
+  "title": "TravelBlog",
+  "theme": "Travel content site",
+  "difficulty": "easy",
+  "pages": [
+    { "id": "home", "file": "home.html", "title": "Homepage" },
+    { "id": "article", "file": "article.html", "title": "Article" },
+    { "id": "contact", "file": "contact.html", "title": "Contact" }
+  ],
+  "bugs": [
+    {
+      "id": "tb-nav-contrast",
+      "page": "home",
+      "category": "accessibility",
+      "severity": "critical",
+      "selector": "nav a",
+      "check": "axe:color-contrast",
+      "title": "Navigation links fail contrast check",
+      "description": "Nav links use #b0b0b0 on a #ffffff background — contrast ratio 2.6:1, well below the 4.5:1 WCAG AA minimum.",
+      "remediation": "Darken the nav link color to at least #595959 (contrast 7:1).",
+      "wcag": "1.4.3",
+      "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum"
+    },
+    {
+      "id": "tb-heading-order",
+      "page": "home",
+      "category": "accessibility",
+      "severity": "major",
+      "selector": "h3.section-title",
+      "check": "axe:heading-order",
+      "title": "Heading skips from h1 to h3",
+      "description": "The page title is <h1> but the next heading is <h3>, skipping <h2>. Screen reader users lose the document outline.",
+      "remediation": "Change <h3> to <h2> for top-level section headings.",
+      "wcag": "1.3.1",
+      "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
+    },
+    {
+      "id": "tb-dead-readmore",
+      "page": "home",
+      "category": "functional",
+      "severity": "major",
+      "selector": "a.read-more-2",
+      "check": "functional:dead-link",
+      "title": "Read more link is broken",
+      "description": "The second article's 'Read more' link points to href=\"#broken\", which does not navigate to any valid page.",
+      "remediation": "Set href to \"article.html\" to link to the full article."
+    },
+    {
+      "id": "tb-article-img-alt",
+      "page": "article",
+      "category": "accessibility",
+      "severity": "critical",
+      "selector": "img.article-hero",
+      "check": "axe:image-alt",
+      "title": "Article hero image missing alt",
+      "description": "The main article photo has no alt attribute. Screen readers announce it as an unnamed image.",
+      "remediation": "Add alt=\"Sunset over Santorini caldera with white buildings and blue domes\".",
+      "wcag": "1.1.1",
+      "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/non-text-content"
+    },
+    {
+      "id": "tb-sidebar-overlap",
+      "page": "article",
+      "category": "visual",
+      "severity": "major",
+      "selector": ".sidebar",
+      "check": "visual:overlap",
+      "title": "Sidebar overlaps article text",
+      "description": "The sidebar has position:absolute with a left value that causes it to overlap the main article content, making both unreadable.",
+      "remediation": "Use a CSS grid or flexbox layout to place the sidebar next to the content.",
+      "targetSelector": ".article-content"
+    },
+    {
+      "id": "tb-textarea-label",
+      "page": "contact",
+      "category": "accessibility",
+      "severity": "critical",
+      "selector": "textarea#message",
+      "check": "axe:label",
+      "title": "Message textarea missing label",
+      "description": "The message textarea uses placeholder text but has no associated <label>. Screen readers announce it as an unlabeled field.",
+      "remediation": "Add <label for=\"message\">Your message</label> before the textarea.",
+      "wcag": "1.3.1",
+      "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
+    },
+    {
+      "id": "tb-dead-back",
+      "page": "contact",
+      "category": "functional",
+      "severity": "major",
+      "selector": "a.back-home",
+      "check": "functional:dead-link",
+      "title": "Back to home link is broken",
+      "description": "The 'Back to homepage' link has href=\"#\" and does not navigate anywhere.",
+      "remediation": "Set href to \"home.html\"."
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "id": "metricboard",
+  "title": "MetricBoard",
+  "theme": "Analytics dashboard",
+  "difficulty": "hard",
+  "pages": [
+    { "id": "overview", "file": "overview.html", "title": "Overview" },
+    { "id": "report", "file": "report.html", "title": "Report" },
+    { "id": "export", "file": "export.html", "title": "Export" }
+  ],
+  "bugs": [
+    {
+      "id": "mb-truncated-label",
+      "page": "overview",
+      "category": "visual",
+      "severity": "major",
+      "selector": ".chart-label",
+      "check": "visual:truncated",
+      "title": "Chart label text truncated",
+      "description": "The 'Revenue by Quarter' label is clipped by its container's overflow:hidden, making it read as 'Revenue by Q'.",
+      "remediation": "Widen the label container or use text-overflow: ellipsis with a title attribute."
+    },
+    {
+      "id": "mb-chart-alt",
+      "page": "overview",
+      "category": "accessibility",
+      "severity": "critical",
+      "selector": "img.chart-img",
+      "check": "axe:image-alt",
+      "title": "Chart image missing alt text",
+      "description": "The revenue chart is rendered as an <img> with no alt attribute. Screen reader users have no idea what data it shows.",
+      "remediation": "Add alt text summarizing the chart data: alt=\"Revenue chart: Q1 $42K, Q2 $58K, Q3 $71K, Q4 $65K\".",
+      "wcag": "1.1.1",
+      "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/non-text-content"
+    },
+    {
+      "id": "mb-broken-filter",
+      "page": "report",
+      "category": "functional",
+      "severity": "critical",
+      "selector": "select.filter-dropdown",
+      "check": "functional:dead-button",
+      "title": "Filter dropdown is disabled",
+      "description": "The region filter select element has a disabled attribute, preventing users from filtering the report data.",
+      "remediation": "Remove the disabled attribute and implement the onChange handler."
+    },
+    {
+      "id": "mb-table-headers",
+      "page": "report",
+      "category": "accessibility",
+      "severity": "major",
+      "selector": "table.data-table",
+      "check": "axe:td-has-header",
+      "title": "Data table missing header cells",
+      "description": "The report table uses <td> for all cells, including the header row. Screen readers cannot associate data cells with their column headers.",
+      "remediation": "Change the first row's <td> elements to <th scope=\"col\"> elements.",
+      "wcag": "1.3.1",
+      "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
+    },
+    {
+      "id": "mb-stale-date",
+      "page": "report",
+      "category": "functional",
+      "severity": "minor",
+      "selector": ".last-updated",
+      "check": "functional:wrong-value",
+      "title": "Stale 'last updated' date",
+      "description": "The report header shows 'Last updated: Jan 2024' despite the data covering Q3 2025. The timestamp hasn't been refreshed.",
+      "remediation": "Update the date to reflect the actual data range.",
+      "expected": "Aug 2025"
+    },
+    {
+      "id": "mb-dead-export",
+      "page": "export",
+      "category": "functional",
+      "severity": "critical",
+      "selector": "button.export-csv",
+      "check": "functional:dead-button",
+      "title": "Export CSV button is disabled",
+      "description": "The 'Export as CSV' button has a disabled attribute with no explanation, preventing users from downloading their data.",
+      "remediation": "Remove the disabled attribute and implement the download handler."
+    },
+    {
+      "id": "mb-export-img-alt",
+      "page": "export",
+      "category": "accessibility",
+      "severity": "major",
+      "selector": "img.preview-chart",
+      "check": "axe:image-alt",
+      "title": "Export preview image missing alt",
+      "description": "The chart preview thumbnail has no alt attribute. Screen readers skip it entirely.",
+      "remediation": "Add alt=\"Preview of the exported chart showing revenue trends\".",
+      "wcag": "1.1.1",
+      "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/non-text-content"
+    }
+  ]
+}

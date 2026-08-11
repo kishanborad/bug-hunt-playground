@@ -1,0 +1,99 @@
+{
+  "id": "healthform",
+  "title": "HealthForm",
+  "theme": "Medical registration portal",
+  "difficulty": "hard",
+  "pages": [
+    { "id": "register", "file": "register.html", "title": "Registration" },
+    { "id": "history", "file": "history.html", "title": "Medical History" },
+    { "id": "confirm", "file": "confirm.html", "title": "Confirmation" }
+  ],
+  "bugs": [
+    {
+      "id": "hf-phone-label",
+      "page": "register",
+      "category": "accessibility",
+      "severity": "critical",
+      "selector": "input#phone",
+      "check": "axe:label",
+      "title": "Phone field missing label",
+      "description": "The phone number input uses placeholder text as its only label. Screen readers cannot identify the field's purpose.",
+      "remediation": "Add <label for=\"phone\">Phone number</label> before the input.",
+      "wcag": "1.3.1",
+      "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
+    },
+    {
+      "id": "hf-tabindex",
+      "page": "register",
+      "category": "accessibility",
+      "severity": "major",
+      "selector": "input#phone",
+      "check": "axe:tabindex",
+      "title": "Positive tabindex disrupts tab order",
+      "description": "The phone field has tabindex=\"5\", which forces it to receive focus before other fields, breaking the expected top-to-bottom navigation.",
+      "remediation": "Remove the tabindex attribute or set it to 0.",
+      "wcag": "2.4.3",
+      "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/focus-order"
+    },
+    {
+      "id": "hf-required-missing",
+      "page": "history",
+      "category": "functional",
+      "severity": "major",
+      "selector": "input#allergies",
+      "check": "functional:missing-required",
+      "title": "Required field has no indicator",
+      "description": "The allergies field is clinically required but has no asterisk, no aria-required, and no visual distinction from optional fields.",
+      "remediation": "Add aria-required=\"true\" and a visual asterisk (*)."
+    },
+    {
+      "id": "hf-error-role",
+      "page": "history",
+      "category": "accessibility",
+      "severity": "critical",
+      "selector": ".error-msg",
+      "check": "axe:color-contrast",
+      "title": "Error message has insufficient contrast",
+      "description": "The error message text (#f87171) on the light gray background (#f3f4f6) has a contrast ratio of 3.1:1, below the 4.5:1 WCAG AA minimum.",
+      "remediation": "Use a darker red like #dc2626 for the error text.",
+      "wcag": "1.4.3",
+      "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum"
+    },
+    {
+      "id": "hf-radio-overlap",
+      "page": "history",
+      "category": "visual",
+      "severity": "major",
+      "selector": ".blood-type-group",
+      "check": "visual:overlap",
+      "title": "Blood type radio buttons overlap",
+      "description": "The radio button group uses absolute positioning that causes the O+ and O- labels to overlap each other.",
+      "remediation": "Use flexbox or grid layout instead of absolute positioning.",
+      "targetSelector": ".radio-o-neg"
+    },
+    {
+      "id": "hf-dead-edit",
+      "page": "confirm",
+      "category": "functional",
+      "severity": "major",
+      "selector": "a.edit-link",
+      "check": "functional:dead-link",
+      "title": "Edit link goes nowhere",
+      "description": "The 'Edit your information' link has href=\"#\" and does not navigate back to the registration form.",
+      "remediation": "Set href to \"register.html\" to link back to the form."
+    },
+    {
+      "id": "hf-heading-skip",
+      "page": "confirm",
+      "category": "accessibility",
+      "severity": "minor",
+      "selector": "h4.section-heading",
+      "check": "axe:heading-order",
+      "title": "Heading level skips from h1 to h4",
+      "description": "The page jumps from <h1> to <h4>, skipping h2 and h3. This confuses screen reader users who navigate by heading level.",
+      "remediation": "Use <h2> for section headings under the page title.",
+      "wcag": "1.3.1",
+      "wcagUrl": "https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships"
+    }
+  ]
+}
