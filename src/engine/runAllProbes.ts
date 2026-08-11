@@ -1,6 +1,6 @@
 import type { ManifestBug, ProbeResult } from '../types';
-import { runVisualProbe } from './visualProbe';
-import { runFunctionalProbe } from './functionalProbe';
+import { runVisualProbe } from './visualProbe.js';
+import { runFunctionalProbe } from './functionalProbe.js';
 import { runAccessibilityProbe } from './accessibilityProbe';
 
 export interface ProbeProgress {
@@ -15,12 +15,12 @@ export async function runAllProbes(
 ): Promise<ProbeResult[]> {
   const allResults: ProbeResult[] = [];
 
-  const visualResults = runVisualProbe(doc, pageBugs);
+  const visualResults = runVisualProbe(doc, pageBugs) as ProbeResult[];
   allResults.push(...visualResults);
   onProgress({ phase: 'visual', results: [...allResults] });
   await delay(600);
 
-  const functionalResults = runFunctionalProbe(doc, pageBugs);
+  const functionalResults = runFunctionalProbe(doc, pageBugs) as ProbeResult[];
   allResults.push(...functionalResults);
   onProgress({ phase: 'functional', results: [...allResults] });
   await delay(600);

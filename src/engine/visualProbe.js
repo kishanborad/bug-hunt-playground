@@ -1,10 +1,5 @@
-import type { ManifestBug, ProbeResult } from '../types';
-
-export function runVisualProbe(
-  doc: Document,
-  bugs: ManifestBug[],
-): ProbeResult[] {
-  const results: ProbeResult[] = [];
+export function runVisualProbe(doc, bugs) {
+  const results = [];
   const visualBugs = bugs.filter((b) => b.category === 'visual');
 
   for (const bug of visualBugs) {
@@ -49,6 +44,6 @@ export function runVisualProbe(
   return results;
 }
 
-function rectsOverlap(a: DOMRect, b: DOMRect): boolean {
+function rectsOverlap(a, b) {
   return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
 }

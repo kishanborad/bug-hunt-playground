@@ -1,11 +1,4 @@
-interface Props {
-  number: number;
-  x: number;
-  y: number;
-  onRemove: () => void;
-}
-
-export default function BugPin({ number, x, y, onRemove }: Props) {
+export default function BugPin({ number, x, y, onRemove }) {
   return (
     <div
       style={{ left: x - 12, top: y - 12 }}

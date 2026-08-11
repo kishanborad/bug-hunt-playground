@@ -1,17 +1,12 @@
-interface Props {
-  phase: 'visual' | 'functional' | 'accessibility' | 'done';
-  foundCount: number;
-}
-
-const phases = ['visual', 'functional', 'accessibility'] as const;
-const phaseLabels: Record<string, string> = {
+const phases = ['visual', 'functional', 'accessibility'];
+const phaseLabels = {
   visual: 'Visual checks',
   functional: 'Functional checks',
   accessibility: 'Accessibility scan (axe-core)',
   done: 'Complete',
 };
 
-export default function ProbeProgress({ phase, foundCount }: Props) {
+export default function ProbeProgress({ phase, foundCount }) {
   return (
     <div className="bg-bh-surface backdrop-blur-glass border border-bh-border rounded-xl p-5">
       <h3 className="text-sm font-semibold text-bh-secondary mb-4 uppercase tracking-wide">
@@ -19,7 +14,7 @@ export default function ProbeProgress({ phase, foundCount }: Props) {
       </h3>
       <div className="flex flex-col gap-3">
         {phases.map((p) => {
-          const isDone = phase === 'done' || phases.indexOf(p) < phases.indexOf(phase as typeof phases[number]);
+          const isDone = phase === 'done' || phases.indexOf(p) < phases.indexOf(phase);
           const isCurrent = p === phase;
           return (
             <div key={p} className="flex items-center gap-3">

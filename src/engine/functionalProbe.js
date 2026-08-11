@@ -1,10 +1,5 @@
-import type { ManifestBug, ProbeResult } from '../types';
-
-export function runFunctionalProbe(
-  doc: Document,
-  bugs: ManifestBug[],
-): ProbeResult[] {
-  const results: ProbeResult[] = [];
+export function runFunctionalProbe(doc, bugs) {
+  const results = [];
   const functionalBugs = bugs.filter((b) => b.category === 'functional');
 
   for (const bug of functionalBugs) {
