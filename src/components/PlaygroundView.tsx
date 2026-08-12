@@ -26,6 +26,7 @@ export default function PlaygroundView({ scenarioId, onFinish, onBack }: Props) 
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const flagModeRef = useRef(true);
   const abortRef = useRef<AbortController | null>(null);
+  const scanCompleteRef = useRef(false);
 
   const [mode, setMode] = useState<Mode>('guide');
   const [flagMode, setFlagMode] = useState(true);
@@ -50,10 +51,13 @@ export default function PlaygroundView({ scenarioId, onFinish, onBack }: Props) 
     return () => clearInterval(id);
   }, [mode]);
 
-  // Keep ref in sync with state
+  // Keep refs in sync with state
   useEffect(() => {
     flagModeRef.current = flagMode;
   }, [flagMode]);
+  useEffect(() => {
+    scanCompleteRef.current = scanComplete;
+  }, [scanComplete]);
 
   // Iframe load handler
   const handleIframeLoad = useCallback(() => {
@@ -115,6 +119,7 @@ export default function PlaygroundView({ scenarioId, onFinish, onBack }: Props) 
     setProbePageIndex(0);
     setProbeResults([]);
     setScanComplete(false);
+    scanCompleteRef.current = false;
     setProbePhase('visual');
     // Navigate to first page for probing
     const firstPage = scenario.pages[0];
@@ -127,7 +132,7 @@ export default function PlaygroundView({ scenarioId, onFinish, onBack }: Props) 
   // Run probes when in probe mode and iframe loads
   const runProbesForCurrentPage = useCallback(async () => {
     const iframe = iframeRef.current;
-    if (!iframe?.contentDocument || mode !== 'probe') return;
+    if (!iframe?.contentDocument || mode !== 'probe' || scanCompleteRef.current) return;
 
     const pageBugs = scenario.bugs.filter((b) => b.page === currentPage.id);
     let pageResults: ProbeResult[];
